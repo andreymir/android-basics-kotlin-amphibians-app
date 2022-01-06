@@ -22,6 +22,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.amphibians.network.Amphibian
 import com.example.amphibians.ui.AmphibianApiStatus
 import com.example.amphibians.ui.AmphibianListAdapter
+import java.lang.Exception
 
 /**
  * Updates the data shown in the [RecyclerView]
@@ -51,6 +52,9 @@ fun bindStatus(statusImageView: ImageView, status: AmphibianApiStatus?) {
         AmphibianApiStatus.ERROR -> {
             statusImageView.visibility = View.VISIBLE
             statusImageView.setImageResource(R.drawable.ic_connection_error)
+        }
+        else -> {
+            throw Exception("Unexpected status: $status")
         }
     }
 }
